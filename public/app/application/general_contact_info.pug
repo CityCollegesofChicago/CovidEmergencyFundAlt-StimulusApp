@@ -1,0 +1,40 @@
+doctype html
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='phone') Preferred Phone*
+            .input-group.p-has-icon
+                input#phone.form-control.bootcamp-input(type='text', name='phone', ui-mask='999.999.9999' ui-mask-placeholder ui-options="{clearOnBlur:false}" placeholder='preferred phone' ng-model="student.phone" required)
+                span.p-field-cb
+            div(ng-show='covidemergencyfundaltAppForm.$submitted || covidemergencyfundaltAppForm.phone.$touched  || SubmittedClicked')
+                .p-field-error( ng-if=" covidemergencyfundaltAppForm.phone.$error.mask" ) Please enter a 10 digit phone.
+                .p-field-error( ng-if=" covidemergencyfundaltAppForm.phone.$error.required" ) Please enter your preferred phone.
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='email1') Preferred Email*
+            .input-group
+                input#email1.form-control.bootcamp-input(type='email', name='email1'  placeholder='preferred email' ng-model="student.otherEmail" required )
+                span.p-field-cb
+            div(ng-show='covidemergencyfundaltAppForm.$submitted || covidemergencyfundaltAppForm.email1.$touched  || SubmittedClicked')
+                .p-field-error(ng-show='covidemergencyfundaltAppForm.email1.$error.email') Invalid email.
+                .p-field-error(ng-show='covidemergencyfundaltAppForm.email1.$error.required') Please enter an email.
+
+<strong>Acknowledgment</strong>
+.custom-control.custom-checkbox
+    input#privacyconsent.custom-control-input(type='checkbox', name='privacyconsent', ng-model='student.privacyconsent', required)
+    label.custom-control-label(for='privacyconsent') I want to be considered for possible financial support.
+    span.glyphicon.glyphicon-check
+    i.fa.fa-check-square-o
+    //span.input-group-state
+        span.p-position
+            span.p-text
+                span.p-required-text
+                    i.fa.fa-star
+    span.p-field-cb
+    div(ng-show='covidemergencyfundaltAppForm.$submitted || SubmittedClicked')
+        .p-field-error(ng-show='covidemergencyfundaltAppForm.privacyconsent.$error.required') Please agree that you are ineligible for the FAFSA.
+
+
+
